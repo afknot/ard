@@ -1,0 +1,366 @@
+$primary: #000;
+$secondary: #59606E;
+$sharpie: #303030;
+$expo-blue: #1a62b5;
+$expo-green: #2d7947;
+$expo-red: #af1f16;
+$post-it-yellow: #FFF682;
+$post-it-green: #C4E3CE;
+$post-it-red: #F6C8E0;
+
+
+// Navs
+
+// Color system
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i|Permanent+Marker&display=swap');
+
+@font-face {
+  font-family: 'Font Awesome Regular';
+  src: url('../fonts/font-awesome/fa-regular-400.eot');
+  src: local('☺'), 
+       url('../fonts/font-awesome/fa-regular-400.woff') format('woff'), 
+       url('../fonts/font-awesome/fa-regular-400.woff2') format('woff2'), 
+       url('../fonts/font-awesome/fa-regular-400.ttf') format('truetype'), 
+       url('../fonts/font-awesome/fa-regular-400.svg') format('svg')
+}
+
+@font-face {
+  font-family: 'Font Awesome Solid';
+  src: url('../fonts/font-awesome/fa-solid-900.eot');
+  src: local('☺'), 
+       url('../fonts/font-awesome/fa-solid-900.woff') format('woff'), 
+       url('../fonts/font-awesome/fa-solid-900.woff2') format('woff2'), 
+       url('../fonts/font-awesome/fa-solid-900.ttf') format('truetype'), 
+       url('../fonts/font-awesome/fa-solid-900.svg') format('svg')
+}
+
+@font-face {
+  font-family: 'Font Awesome Brands';
+  src: url('../fonts/font-awesome/fa-brands-400.eot');
+  src: local('☺'), 
+       url('../fonts/font-awesome/fa-brands-400.woff') format('woff'), 
+       url('../fonts/font-awesome/fa-brands-400.woff2') format('woff2'), 
+       url('../fonts/font-awesome/fa-brands-400.ttf') format('truetype'), 
+       url('../fonts/font-awesome/fa-brands-400.svg') format('svg')
+}
+
+// Layout
+
+html, body {min-height: 100vh;}
+
+#page {
+  max-width: 1000px;
+  margin: 4rem auto;
+  padding: 0 3rem;
+}
+
+#nav-content-cols {
+  @media (min-width: 37.5em) {
+    display: flex;
+  }
+}
+
+#site-navigation {
+  @media (min-width: 37.5em) {
+    margin-right: 5rem;
+  }
+}
+
+#colophon {
+  margin-top: 3rem;
+}
+
+* {
+  box-sizing: border-box; 
+}
+
+body {
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  background: rgb(241,241,242);
+  background: linear-gradient(42deg, rgba(241,241,242,1) 0%, rgba(255,255,255,1) 35%, rgba(242,244,245,1) 100%);
+}
+
+h1.site-title {
+  margin: 0 auto 2rem;
+  background: transparent url(../img/logo.svg) 0 0 no-repeat;
+  background-size: contain;
+  width: 120px;
+  height: 90px;
+  overflow: hidden;
+  text-indent: -8888px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Permanent Marker', cursive;
+  color: $sharpie;
+  @media (max-width: 37.5em) {
+    text-align: center;
+  }
+}
+
+h1 {
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 58px;
+}
+
+h2 {
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 40px;
+}
+
+h3 {
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 30px; 
+}
+
+#content,
+footer.site-footer {
+
+  a {
+    transition: background-position .4s ease .1s;
+
+    &:link,
+    &:visited {
+      color: #000;
+      display: inline-block;
+      background: transparent;
+      background: linear-gradient(to right, lighten($post-it-yellow, 10%) 50%, transparent 50%);
+      background-size: 200% 100%;
+      background-position: right bottom;
+      transition: background-position color .5s ease;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: darken($post-it-yellow, 60%);
+      background-position: left bottom;
+    }
+  }
+
+  figure {
+
+    a {
+      background: transparent;
+
+      img {
+        border-radius: 3px;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+      }
+    }
+
+    figcaption {
+      font-size: .75rem;
+      text-align: center;
+    }
+  }
+}
+
+.post-thumbnail {
+
+  img {
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  }
+}
+
+@media (min-width: 37.5em) {
+nav#site-navigation {
+    width: 270px;
+    margin-top: 1.5rem;
+
+  ul {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      flex-wrap: wrap;
+
+    li {
+        order: 1;
+        align-self: flex-start;
+
+      &:nth-of-type(1):before {
+        display: block;
+        margin: 0 auto 2rem;
+        text-align: center;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 28px;
+        line-height: 38px;
+        color: $sharpie;
+        content: 'To Do';
+      }
+
+      &.current-menu-item:first-child + li:before {
+        display: block;
+        margin: 0 auto 2rem;
+        text-align: center;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 28px;
+        line-height: 38px;
+        color: $sharpie;
+        content: 'To Do';
+      }
+
+      &.current-menu-item {
+        order: 0;
+        align-self: flex-end;
+          position: absolute;
+    
+        &:before {
+          display: block;
+          margin: 0 auto 2rem;
+          text-align: center;
+          font-family: 'Permanent Marker', cursive;
+          font-size: 28px;
+          line-height: 38px;
+          color: $sharpie;
+          content: 'Doing';
+        }
+      }
+
+      &:nth-child(1) {
+        transform: rotate(-3deg);
+      }
+      
+      &:nth-child(2) {
+        transform: rotate(-1deg);
+      }
+      
+      &:nth-child(3) {
+        transform: rotate(2deg);
+      }
+      
+      &:nth-child(4) {
+        transform: rotate(3deg);
+      }
+      
+      &:nth-child(5) {
+        transform: rotate(3deg);
+      }
+
+      a {
+        display: flex;
+        position: relative;
+        margin: 0 auto 2rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        text-decoration: none;
+        min-height: 120px;
+        width: 120px;
+        border-radius: 3px;
+        padding: 20px;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 14px;
+        line-height: 24px;
+        color: $primary;
+        background-color: #FFF682;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+        transition: box-shadow 0.4s ease, transform .3s ease-in-out;
+
+        &:hover {
+          transform: scale(1.1);
+          transform: rotate(1deg);
+          box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+    
+        // &:visited {
+        //   background-color: #F6C8E0;
+        // }
+    
+        &[aria-current="page"] {
+          background-color: #C4E3CE;
+        }
+      }
+    }
+  }
+}
+
+body.single-portfolio {
+
+  nav#site-navigation {
+
+    ul {
+
+      li.menu-item-object-portfolio {
+        order: 0;
+        align-self: flex-end;
+        @media (min-width: 37.5em) {
+          position: absolute;
+        }
+
+        &:before {
+          display: block;
+          margin: 0 auto 2rem;
+          text-align: center;
+          font-family: 'Permanent Marker', cursive;
+          font-size: 28px;
+          line-height: 38px;
+          color: $sharpie;
+          content: 'Doing';
+        }
+
+        a {
+          background-color: #C4E3CE;
+        }
+      }
+    }
+  }
+}  
+}
+
+@media (max-width: 37.5em) {
+  nav#site-navigation {
+
+    button.menu-toggle {
+      margin: 0 auto 1.5rem;
+      background-color: transparent;
+      border: none;
+      border-bottom: 4px solid $sharpie;
+      font-family: 'Permanent Marker', cursive;
+      font-size: 20px;
+      line-height: 30px;
+    }
+
+    ul {
+      position: relative;
+
+      li {
+        display: block;
+        float: none;
+        text-align: center;
+        margin-bottom: 1rem;
+
+      &.current-menu-item {
+        
+        a {
+          display: inline;
+          color: darken($post-it-yellow, 60%);
+          background-color: lighten($post-it-yellow, 10%);
+        }
+      }
+
+        a {
+          display: inline;
+          font-family: 'Permanent Marker', cursive;
+          font-size: 14px;
+          line-height: 24px;
+          color: $sharpie;
+        }
+      }
+    }
+  }
+}
+
+
+footer {
+
+  .site-info {
+    text-align: center;
+    font-size: .75rem;
+  }
+}
